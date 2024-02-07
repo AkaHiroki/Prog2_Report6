@@ -15,6 +15,10 @@ repositories {
     mavenCentral()
 }
 
+java {                                      
+    sourceCompatibility = JavaVersion.VERSION_17
+}
+
 dependencies {
     // Use JUnit Jupiter for testing.
     testImplementation("org.junit.jupiter:junit-jupiter:5.9.3")
@@ -40,4 +44,10 @@ application {
 tasks.named<Test>("test") {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+
+tasks.withType<Jar> {
+    manifest {
+        attributes["Main-Class"] = "Main"
+    }
 }
