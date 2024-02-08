@@ -5,6 +5,14 @@ import java.util.Random;
 public class SelectNumber {
     private String correctNumber;
 
+    public String getCorrectNumber() {
+        return correctNumber;
+    }
+    
+    public void setCorrectNumber(String correctNumber) {
+        this.correctNumber = correctNumber;
+    }
+
     public SelectNumber(){}
     
     public String generateRandomNumber(){
