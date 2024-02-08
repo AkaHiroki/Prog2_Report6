@@ -25,11 +25,11 @@ public class Main {
                 continue;
             }
 
-            if (guessInt == correctNumber){
+            if (guessInt.equals(correctNumber)){
                 System.out.println("素晴らしい！正解です！");
                 break;
             }else;{
-                String hint = selectNumber.generateHint(guessInt);
+                String hint = selectNumber.generateHint(guess);
                 System.out.println(hint.charAt(0) + "ヒット," + hint.charAt(1) + "ボール");
             }
         }while(true); 

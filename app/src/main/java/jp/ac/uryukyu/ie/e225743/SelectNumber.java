@@ -4,6 +4,8 @@ import java.util.Random;
 
 public class SelectNumber {
     private String correctNumber;
+
+    public SelectNumber(){}
     
     public String generateRandomNumber(){
         Random random = new Random();
@@ -20,11 +22,11 @@ public class SelectNumber {
         return correctNumber;
     }
 
-    public String generateHint(String guessInt){
+    public String generateHint(int guess){
         int hit = 0;
         int ball = 0;
         String correctStr = correctNumber;
-        String guessStr = String.format("%03d", guessInt); // 3桁の数字に変換する
+        String guessStr = String.format("%03d", guess); // 3桁の数字に変換する
 
         for (int i = 0; i<3; i++){
             char guessDigit = i < guessStr.length() ? guessStr.charAt(i) : ' ';
