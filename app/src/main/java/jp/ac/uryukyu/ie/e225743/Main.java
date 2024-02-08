@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args){
         SelectNumber selectNumber = new SelectNumber();
-        int correctNumber = selectNumber.generateRandomNumber();
+        String correctNumber = selectNumber.generateRandomNumber();
 
         Scanner scanner = new Scanner(System.in);
 
@@ -16,24 +16,25 @@ public class Main {
 
         do{
             System.out.print("数字を入力してください:");
+            attempt++;
             guess = scanner.nextInt();
-            
-            if (guess < 100 || guess > 999){
-                System.out.println("三桁の数字を入力してください:");
+            String guessInt = Integer.toString(guess);
+
+            if (guess > 999){
+                System.out.println("三桁の数字を入力してください");
                 continue;
             }
 
-            if (guess == correctNumber){
+            if (guessInt == correctNumber){
                 System.out.println("素晴らしい！正解です！");
                 break;
             }else;{
-                String hint = selectNumber.generateHint(guess);
+                String hint = selectNumber.generateHint(guessInt);
                 System.out.println(hint.charAt(0) + "ヒット," + hint.charAt(1) + "ボール");
             }
-        }while(true);
+        }while(true); 
 
         System.out.println("正解まで" + attempt + "回かかりました。");
-
-        
+        scanner.close();        
     }
 }
